@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6
 RUN pip install notebook
 
 # Copia i notebook
-COPY code code
+#COPY code code - meglio mount
 
 # Espone la porta del server Jupyter
 EXPOSE 8888
