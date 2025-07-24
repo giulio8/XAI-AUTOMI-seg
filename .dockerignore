@@ -1,0 +1,16 @@
+# Evita i dataset e gli output
+data/
+output/
+
+# Evita pesanti file di modello e immagini mediche
+*.nii
+*.nii.gz
+*.npy
+*.pt
+*.h5
+*.ckpt
+*.pkl
+
+# Evita cache e notebook
+__pycache__/
+.ipynb_checkpoints/
