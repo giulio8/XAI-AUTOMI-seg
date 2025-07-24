@@ -1,5 +1,6 @@
 data
-.devcontainer
+output
+.devcontainer*
 code/.ipynb_checkpoints
 .DS_Store
 *__pycache__
