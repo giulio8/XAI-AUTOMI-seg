@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.4
 FROM python:3.10.6
 
 # Crea una cartella di lavoro
@@ -8,24 +9,16 @@ WORKDIR /workspace
 COPY requirements.txt .
 
 # Installa Python packages
-#RUN pip install --upgrade pip && pip install -r requirements.txt
-RUN pip install -r requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 
 # Installa librerie di sistema per immagini/video (opencv, matplotlib, ecc.)
 RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6
 
-RUN apt-get update && \
-    apt-get install -y curl apt-utils gnupg software-properties-common && \
-    curl -fsSL https://code-server.dev/install.sh | sh
+# Installa jupyter e jupyter nbconvert per eseguire notebook da riga di comando
+RUN pip install notebook nbconvert
 
-RUN code-server --install-extension ms-python.python
+# Espone una porta utile per debug, se necessario
+EXPOSE 8888
 
-# Copia i notebook
-#COPY code code - meglio mount
-
-# Espone la porta del server Jupyter
-EXPOSE 8443
-
-# Avvia direttamente il server code quando il container parte
-ENV PASSWORD="giulio"
-CMD ["code-server", "--bind-addr", "0.0.0.0:8443", "--auth", "password", "/workspace"]
+# Nessun comando automatico: si lavora in modo interattivo
+CMD ["/bin/bash"]

@@ -1,0 +1,26 @@
+{
+  "name": "AUTOMI-seg",
+  "context": "..",
+  "dockerFile": "../Dockerfile",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8888],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  },
+
+  "mounts":[
+    "source=${localWorkspaceFolder}/code,target=/workspace/code,type=bind",
+    "source=${localWorkspaceFolder}/data/Dataset003_AUTOMI_CTVLNF_NEWGL_raw_data,target=/workspace/data/nnunet_raw,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/data/Dataset003_AUTOMI_CTVLNF_NEWGL_results,target=/workspace/data/results,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/output,target=/workspace/output,type=bind"
+  ],
+  "postCreateCommand": "pip install notebook jupyterlab"
+}
