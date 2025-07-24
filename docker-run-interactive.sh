@@ -7,7 +7,7 @@ OUTPUT_DIR="/home/giulio/XAI-AUTOMI-seg/output"
 
 # Esegui il container montando i volumi
 docker run -it --gpus device=0 --rm \
-  --runtime=nvidia \
+  --name automi-dev-interactive \
   -v "$CODE_DIR":/workspace/code \
   -v "$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_raw_data":/workspace/data/nnunet_raw \
   -v "$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_results":/workspace/data/results \
