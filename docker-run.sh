@@ -6,7 +6,7 @@ DATA_DIR="/home/giulio/XAI-AUTOMI-seg/data"
 OUTPUT_DIR="/home/giulio/XAI-AUTOMI-seg/output"
 
 
-docker run -dit \
+docker run -it -d \
   --name automi-dev \
   --gpus device=0 \
   -v "$CODE_DIR":/workspace/code \

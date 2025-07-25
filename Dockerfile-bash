@@ -14,11 +14,11 @@ RUN --mount=type=cache,target=/root/.cache/pip pip install -r requirements.txt
 # Installa librerie di sistema per immagini/video (opencv, matplotlib, ecc.)
 RUN apt-get update && apt-get install -y ffmpeg libsm6 libxext6
 
-# Installa Jupyter Notebook
-RUN pip install notebook
+# Installa jupyter e jupyter nbconvert per eseguire notebook da riga di comando
+RUN pip install notebook nbconvert
 
-# Espone la porta del server Jupyter
+# Espone una porta utile per debug, se necessario
 EXPOSE 8888
 
-# Avvia direttamente Jupyter Notebook quando il container parte
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--no-browser"]
+# Nessun comando automatico: si lavora in modo interattivo
+CMD ["/bin/bash"]
