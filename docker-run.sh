@@ -5,6 +5,7 @@ source .env
 CODE_DIR="${CODE_DIR:?Environment variable CODE_DIR not set}"
 DATA_DIR="${DATA_DIR:?Environment variable DATA_DIR not set}"
 OUTPUT_DIR="${OUTPUT_DIR:?Environment variable OUTPUT_DIR not set}"
+WANDB_API_KEY="${WANDB_API_KEY:?Environment variable WANDB_API_KEY not set}"
 
 # -it per interattività, -d per eseguire in background
 # --gpus device=0 per specificare l'uso della GPU 0
@@ -21,7 +22,8 @@ DOCKER_CMD="docker run -it -d \
   -v \"$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_raw_data\":/workspace/data/nnunet_raw \
   -v \"$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_results\":/workspace/data/results \
   -v \"$OUTPUT_DIR\":/workspace/output \
-  -w /workspace"
+  -w /workspace \
+  -e WANDB_API_KEY=\"$WANDB_API_KEY\""
 
 # Aggiunge GPU solo se specificata
 if [[ -n "$GPUS" ]]; then
