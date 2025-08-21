@@ -1,7 +1,9 @@
 data
 output
+output-w2
 code/.ipynb_checkpoints
 .DS_Store
 *__pycache__
 *.venv
 *.env
+*.env-w2
