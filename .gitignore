@@ -7,3 +7,4 @@ code/.ipynb_checkpoints
 *.venv
 *.env
 *.env-w2
+*wandb/
