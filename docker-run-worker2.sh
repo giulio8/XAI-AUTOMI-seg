@@ -21,6 +21,7 @@ DOCKER_CMD="docker run -it -d \
   -v \"$CODE_DIR\":/workspace/code \
   -v \"$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_raw_data\":/workspace/data/nnunet_raw \
   -v \"$DATA_DIR/Dataset003_AUTOMI_CTVLNF_NEWGL_results\":/workspace/data/results \
+  -v \"$DATA_DIR/SHAP_results\":/workspace/data/experiment_results \
   -v \"$OUTPUT_DIR\":/workspace/output \
   -w /workspace \
   -e WANDB_API_KEY=\"$WANDB_API_KEY\""
