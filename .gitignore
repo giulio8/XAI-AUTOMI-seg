@@ -8,3 +8,5 @@ code/.ipynb_checkpoints
 *.env
 *.env-w2
 *wandb/
+*/metrics_data/
+*/dashboards/
