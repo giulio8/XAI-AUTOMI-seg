@@ -10,3 +10,4 @@ code/.ipynb_checkpoints
 *wandb/
 */metrics_data/
 */dashboards/
+.vscode
